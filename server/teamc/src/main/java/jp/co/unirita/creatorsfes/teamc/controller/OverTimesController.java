@@ -47,9 +47,10 @@ public class OverTimesController {
     @GetMapping(value = "/masters/{masterName}")
     @ResponseStatus(HttpStatus.OK)
     public List<Master> getMasterData(
-            @PathVariable(value = "masterName")String masterName
+            @PathVariable(value = "masterName")String masterName,
+            @RequestParam Map<String, String> options
     ) throws Exception {
-        return masterService.execute(masterName);
+        return masterService.execute(masterName, options);
     }
 
     @GetMapping(value = "axes")
